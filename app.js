@@ -67,7 +67,12 @@ app.get('/people', async (req, res) => {
   }
 });
 
+// you can run docker container inspect <container-name>
+// you can use IPAddress of the container to connect to the database
 mongoose.connect(
+  // Use host.docker.internal if you are going to expose the container port and you would communicate to the container from outside
+  // 'mongodb://host.docker.internal/swfavorites',
+
   'mongodb://mongo-container/swfavorites',
   { useNewUrlParser: true },
   (err) => {
